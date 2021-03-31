@@ -260,74 +260,74 @@ class FlowersViewController: UIViewController {
         return redMouth
     }
 
-    func addRightBlackEye() -> CAShapeLayer {
+    func addRightBlackEye(redColor: CGFloat, greenColor: CGFloat, blueColor: CGFloat) -> CAShapeLayer {
         //右眼黑
         let rightBlackEyePath = UIBezierPath(ovalIn: CGRect(x: 210, y: 250, width: 16, height: 23))
         let aDegree = CGFloat.pi / 180
 
         let rightBlackEye = CAShapeLayer()
         rightBlackEye.path = rightBlackEyePath.cgPath
-        rightBlackEye.fillColor = UIColor.black.cgColor
+        rightBlackEye.fillColor = CGColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
         rightBlackEye.setAffineTransform(CGAffineTransform(rotationAngle: aDegree * -30).translatedBy(x: -160, y: 75))
         return rightBlackEye
     }
      
-    func addRightUpWhiteEye() -> CAShapeLayer {
+    func addRightUpWhiteEye(redColor: CGFloat, greenColor: CGFloat, blueColor: CGFloat) -> CAShapeLayer {
         //右上眼白
         let rightUpWhiteEyePath = UIBezierPath(ovalIn: CGRect(x: 210, y: 245, width: 6, height: 9))
         let aDegree = CGFloat.pi / 180
         
         let rightUpWhiteEye = CAShapeLayer()
         rightUpWhiteEye.path = rightUpWhiteEyePath.cgPath
-        rightUpWhiteEye.fillColor = UIColor.white.cgColor
+        rightUpWhiteEye.fillColor = CGColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
         rightUpWhiteEye.setAffineTransform(CGAffineTransform(rotationAngle: aDegree * -20).translatedBy(x: -99, y: 67))
         return rightUpWhiteEye
     }
       
-    func addRightDownWhiteEye() -> CAShapeLayer {
+    func addRightDownWhiteEye(redColor: CGFloat, greenColor: CGFloat, blueColor: CGFloat) -> CAShapeLayer {
         //右下眼白
         let rightDownWhiteEyePath = UIBezierPath(ovalIn: CGRect(x: 210, y: 255, width: 5, height: 7))
         let aDegree = CGFloat.pi / 180
         
         let rightDownWhiteEye = CAShapeLayer()
         rightDownWhiteEye.path = rightDownWhiteEyePath.cgPath
-        rightDownWhiteEye.fillColor = UIColor.white.cgColor
+        rightDownWhiteEye.fillColor = CGColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
         rightDownWhiteEye.setAffineTransform(CGAffineTransform(rotationAngle: aDegree * -20).translatedBy(x: -95, y: 69))
         return rightDownWhiteEye
     }
  
-    func addLeftBlackEye() -> CAShapeLayer {
+    func addLeftBlackEye(redColor: CGFloat, greenColor: CGFloat, blueColor: CGFloat) -> CAShapeLayer {
         //左眼黑
         let leftBlackEyePath = UIBezierPath(ovalIn: CGRect(x: 170, y: 250, width: 16, height: 23))
         let aDegree = CGFloat.pi / 180
         
         let leftBlackEye = CAShapeLayer()
         leftBlackEye.path = leftBlackEyePath.cgPath
-        leftBlackEye.fillColor = UIColor.black.cgColor
+        leftBlackEye.fillColor = CGColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
         leftBlackEye.setAffineTransform(CGAffineTransform(rotationAngle: aDegree * 30).translatedBy(x: 95, y: -115))
         return leftBlackEye
     }
    
-    func addLeftUpWhiteEye() -> CAShapeLayer {
+    func addLeftUpWhiteEye(redColor: CGFloat, greenColor: CGFloat, blueColor: CGFloat) -> CAShapeLayer {
         //左上眼白
         let leftUpWhiteEyePath = UIBezierPath(ovalIn: CGRect(x: 170, y: 245, width: 6, height: 9))
         let aDegree = CGFloat.pi / 180
         
         let leftUpWhiteEye = CAShapeLayer()
         leftUpWhiteEye.path = leftUpWhiteEyePath.cgPath
-        leftUpWhiteEye.fillColor = UIColor.white.cgColor
+        leftUpWhiteEye.fillColor = CGColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
         leftUpWhiteEye.setAffineTransform(CGAffineTransform(rotationAngle: aDegree * 20).translatedBy(x: 68, y: -62))
         return leftUpWhiteEye
     }
 
-    func addLeftDownWhiteEye() -> CAShapeLayer {
+    func addLeftDownWhiteEye(redColor: CGFloat, greenColor: CGFloat, blueColor: CGFloat) -> CAShapeLayer {
         //左下眼白
         let leftDownWhiteEyePath = UIBezierPath(ovalIn: CGRect(x: 170, y: 255, width: 5, height: 7))
         let aDegree = CGFloat.pi / 180
         
         let leftDownWhiteEye = CAShapeLayer()
         leftDownWhiteEye.path = leftDownWhiteEyePath.cgPath
-        leftDownWhiteEye.fillColor = UIColor.white.cgColor
+        leftDownWhiteEye.fillColor = CGColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
         leftDownWhiteEye.setAffineTransform(CGAffineTransform(rotationAngle: aDegree * 20).translatedBy(x: 73, y: -61))
         return leftDownWhiteEye
     }
@@ -335,7 +335,7 @@ class FlowersViewController: UIViewController {
     func creatFlower() -> CAShapeLayer {
         let layer = CAShapeLayer()
         
-        for num in 0...11 {
+        for num in 0...19 {
             let red = CGFloat.random(in: 0...1)
             let green = CGFloat.random(in: 0...1)
             let blue = CGFloat.random(in: 0...1)
@@ -352,19 +352,18 @@ class FlowersViewController: UIViewController {
                 addPetalLayer10(redColor: red, greenColor: green, blueColor: blue),
                 addPetalLayer11(redColor: red, greenColor: green, blueColor: blue),
                 addPetalLayer12(redColor: red, greenColor: green, blueColor: blue),
+                addYellowHead(),
+                addRedMouth(),
+                addRightBlackEye(redColor: red, greenColor: green, blueColor: blue),
+                addRightUpWhiteEye(redColor: red, greenColor: green, blueColor: blue),
+                addRightDownWhiteEye(redColor: red, greenColor: green, blueColor: blue),
+                addLeftBlackEye(redColor: red, greenColor: green, blueColor: blue),
+                addLeftUpWhiteEye(redColor: red, greenColor: green, blueColor: blue),
+                addLeftDownWhiteEye(redColor: red, greenColor: green, blueColor: blue)
             ]
             layer.addSublayer(petalLayer[num])
 
         }
-
-        layer.addSublayer(addYellowHead())
-        layer.addSublayer(addRedMouth())
-        layer.addSublayer(addRightBlackEye())
-        layer.addSublayer(addRightUpWhiteEye())
-        layer.addSublayer(addRightDownWhiteEye())
-        layer.addSublayer(addLeftBlackEye())
-        layer.addSublayer(addLeftUpWhiteEye())
-        layer.addSublayer(addLeftDownWhiteEye())
         
         return layer
     }
